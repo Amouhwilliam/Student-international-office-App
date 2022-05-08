@@ -1,0 +1,44 @@
+.demo-table {
+    width: 100%;
+  }
+  
+  .demo-button-container {
+    padding-bottom: 16px;
+  }
+  
+  .demo-button + .demo-button {
+    margin-left: 8px;
+  }
+  .dark-modal .modal-content {
+    background-color: #292b2c;
+    color: white;
+  }
+  .dark-modal .close {
+    color: white;
+  }
+  .light-blue-backdrop {
+    background-color: #5cb3fd;
+  }
+
+  .login-btn{
+    background-color: #1a4273;
+    opacity: 0.8;
+    color: white;
+    font-family: 'Saira', sans-serif;
+    font-size: 14px;
+    line-height: 1.428571429;
+    padding-right: 30px;
+    padding-left: 30px;
+    margin-right: 5px;
+ }
+
+ .cancel-btn{
+  background-color: #e53935;
+  opacity: 0.8;
+  color: white;
+    font-family: 'Saira', sans-serif;
+    font-size: 14px;
+    line-height: 1.428571429;
+    padding-right: 30px;
+    padding-left: 30px;
+  }

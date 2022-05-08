@@ -1,0 +1,41 @@
+.bg {
+    /* Full height */
+    height: 100%; 
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .infotext_big_black {
+    font-family: 'Saira', sans-serif;
+    color: #1a4273;
+    max-width: 100%;
+    vertical-align: middle;
+    text-align: center;
+}
+.infotext_small_black {
+    font-family: 'Saira', sans-serif;
+    font-size: 2vw;
+    color: #1a4273;
+    max-width: 100%;
+    vertical-align: middle;
+    text-align: center;
+}
+.section_title, .page-header {
+    text-align: center;
+    font-family: Orator_Std_Medium !important;
+    padding-top: 25px;
+    padding-bottom: 15px;
+}
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+.infotext{
+    margin-left: 100px;
+    margin-right:100px;
+    font-family: sans-serif;
+}
+h2{
+    color:#1a4273;
+}

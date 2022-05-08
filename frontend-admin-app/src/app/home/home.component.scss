@@ -1,0 +1,60 @@
+:host {
+    font-family: 'Saira', sans-serif;
+    font-size: 14px;
+    line-height: 1.428571429;
+    color: #333333; // darkgrey
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5{
+    font-family: 'Orator Std Medium';
+  }
+  
+  h2 {
+    font-family: 'Orator Std Medium';
+    font-size: 28pt;
+  }
+  
+  .login_heading{
+    margin: auto;
+    width: 600px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+   
+  .form-group{
+    font-family: 'Saira', sans-serif;
+    font-size: 14px;
+    line-height: 1.428571429;
+    color: #333333; // darkgrey
+  }
+  
+   .login-form {
+     width: 100%;
+   }
+  
+   .login-btn{
+      background-color: #1a4273;
+      opacity: 0.8;
+      color: white;
+      font-family: 'Saira', sans-serif;
+      font-size: 14px;
+      line-height: 1.428571429;
+      padding-right: 30px;
+      padding-left: 30px;
+      margin-right: 5px;
+   }
+
+   .cancel-btn{
+    background-color: #e53935;
+    opacity: 0.8;
+    color: white;
+      font-family: 'Saira', sans-serif;
+      font-size: 14px;
+      line-height: 1.428571429;
+      padding-right: 30px;
+      padding-left: 30px;
+}

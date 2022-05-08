@@ -1,0 +1,114 @@
+:host {
+    font-family: 'Saira', sans-serif;
+    font-size: 14px;
+    line-height: 1.428571429;
+    color: #333333; // darkgrey
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5{
+    font-family: 'Orator Std Medium';
+  }
+
+  h2 {
+    font-family: 'Orator Std Medium';
+    font-size: 28pt;
+  }
+
+  .toolbar {
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: white;
+    color:#1a4273 ;
+    font-weight: 600;
+  }
+
+  .navbar {
+    display: flex;
+    align-items: center;
+    background-color: #1a4273;
+    opacity: 0.7;
+    color: white;
+    font-weight: 600;
+  }
+  .footer {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    background-color: #1a4273;
+    opacity: 0.7;
+    color: white;
+    font-weight: 600;
+    margin-top: 20px;
+  }
+  .footer-text {
+    margin-left: 100px;
+  }
+  .toolbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    margin-right: 200px;
+  }
+  .toolbar-content-item {
+    font-size: 15px;
+    font-weight: bold;
+    margin-left: 20px;
+    margin-top: 15px;
+  }
+
+  .navbar-logo {
+    width: '10px' !important;
+    height: '5px' !important;
+  }
+
+  .link-container {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    margin-right: 60px;
+  }
+
+  .nav-item {
+    font-size: 15px;
+    font-weight: bold;
+    margin-left: 20px;
+    margin-top: 15px;
+  }
+  .newsevent{
+    color:#1a4273;
+  }
+
+
+
+@font-face {
+    font-family: 'Orator Std Medium';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Orator Std Medium'), url('../OratorStd.woff') format('woff');
+}
+
+.res {
+    width: 100%;
+  }
+
+
+@media screen and (max-width: 575px) {
+    
+}
+
+
+.pointer {cursor: pointer;}

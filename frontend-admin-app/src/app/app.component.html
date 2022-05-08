@@ -1,0 +1,36 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<app-general-toast aria-live="polite" aria-atomic="true"></app-general-toast>
+<div class="toolbar res pointer" role="banner" style="color: #1a4273;">
+  <div class="toolbar-content">
+    <p class="toolbar-content-item mr-5" *ngIf="!isLoggedIn" (click)="Login()">{{'button1'|translate}}</p>
+    <p class="toolbar-content-item mr-5" *ngIf="isLoggedIn" (click)="Logout()">Logout</p>
+    
+    <p class="toolbar-content-item"(click)="languageSwitch('en')">EN</p>
+    <p class="toolbar-content-item"(click)="languageSwitch('nl')">DE</p>
+    <p class="toolbar-content-item ml-5" (click)="languageSwitch('nl')">{{userData?.first_name}} {{userData?.last_name}}</p>
+  </div>
+</div>
+<div class="navbar pointer">
+  <div class="logobox"><a href=""><img src="../assets/logo.png" height="50"></a></div>
+  <div class="link-container">
+    <p class="nav-item" *ngIf="isLoggedIn" (click)="Users()">Users</p>
+    <p class="nav-item" *ngIf="isLoggedIn" (click)="Events()">{{'button2'|translate}}</p>
+    <p class="nav-item" *ngIf="isLoggedIn" (click)="News()">{{'button3'|translate}}</p>
+    <p class="nav-item" *ngIf="isLoggedIn" (click)="Chat()">Chat</p>
+  </div> 
+</div>
+
+  <router-outlet></router-outlet>
+
+  <div class="footer">
+    <p class="footer-text">@copyrigth THD, 2022.</p>
+  </div>
+
+
+
+
+<!-- 
+
+  <div><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2626.5035162053514!2d12.952399015531492!3d48.82953367928468!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4775119871ad94ef%3A0x64e9bac6691ed449!2sDeggendorf%20Institute%20of%20Technology!5e0!3m2!1sen!2sde!4v1642164729472!5m2!1sen!2sde" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+  </div> -->

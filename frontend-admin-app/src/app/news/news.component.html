@@ -1,0 +1,127 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" *ngIf="!editMode">Create News</h4>
+    <h4 class="modal-title" *ngIf="editMode">Update News</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <form class="form-register" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="modal-body">
+      <div class="container form-group">
+          <div class="mb-3">
+            <label for="title" class="form-label">Title:</label>
+            <input type="text" class="form-control" id="title" placeholder="Title" formControlName="title">
+          </div>
+    
+          <div class="mb-3">
+            <label for="subTitle" class="form-label">Sub title:</label>
+            <input type="lastname" class="form-control" id="subTitle" placeholder="Sub title" formControlName="subTitle">
+          </div>
+    
+          <div class="mb-3">
+            <label for="description" class="form-label">Description:</label>
+            <textarea class="form-control" id="description"  placeholder="Description" formControlName="description" rows="3"></textarea>
+          </div>
+          <div class="row">
+            <div class="checkbox col">
+              <label><input type="checkbox" formControlName="published"> Publish</label>
+            </div>
+            <div class="mb-3 col">
+              <input class="form-control" accept="image/*" (change)="onFileSelected($event)" type="file" id="formFile">
+            </div>
+          </div>
+          <div class="d-flex justify-content-center">
+            <img src={{imageSrc}} *ngIf="imageSrc" style="width: 400px; height: 320px;" alt="image">
+          </div> 
+          <div *ngIf="imageSrc" class="d-flex mt-3 justify-content-center">
+            <button
+              class="btn btn-outline-danger"
+              type="button"
+              (click)="deleteImage()"
+            >
+            Delete picture
+          </button>
+          </div> 
+          
+          
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="submit" class="btn login-btn">Submit</button>
+      <button type="reset" (click)="closeModal()" class="btn cancel-btn">Cancel</button>
+    </div>
+  </form>
+</ng-template>
+
+
+<div class="p-3">
+    <button
+      class="btn mb-3 btn-outline-secondary"
+      type="button"
+      (click)="openModal(content, false)"
+    >
+      Add new news
+    </button>
+
+    <div class="d-flex justify-content-end form-group form-inline">
+      <input 
+        class="form-control mr-2"
+        type="text"
+        placeholder="Search by title"
+        [(ngModel)]="searchText"
+      />
+      <div class="input-group-append mr-5">
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          (click)="retrieveNews()"
+        >
+          Search
+        </button>
+      </div>
+   </div>
+    
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Image</th>
+        <th scope="col">Title</th>
+        <th scope="col">Sub-title</th>
+        <th scope="col">Description</th>
+        <th scope="col">Published</th>
+        <th scope="col">Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let n of news | paginate : {
+        itemsPerPage: limit,
+        currentPage: page,
+        totalItems: count
+      }; index as i">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>
+          <img [src]="imageBaseUrl + n.media" class="mr-2" style="width: 50px; height: 40px;">
+        </td>
+        <td>{{ n.title }}</td>
+        <td>{{ n.subTitle }}</td>
+        <td>{{ n.description }}</td>
+        <td>{{ n.published }}</td>
+        <td>
+          <mat-icon aria-hidden="false" class="mr-2 cursor-pointer" (click)="openModal(content, true, n)" aria-label="Example home icon">edit</mat-icon>
+          <mat-icon aria-hidden="false" class="cursor-pointer" color="accent" (click)="removeData(n._id)" aria-label="Example home icon">delete</mat-icon>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+    <div class="d-flex justify-content-end col-md-12">
+      <pagination-controls
+        previousLabel="Prev"
+        nextLabel="Next"
+        (pageChange)="handlePageChange($event)"
+      ></pagination-controls>
+    </div>
+ 
+</div>

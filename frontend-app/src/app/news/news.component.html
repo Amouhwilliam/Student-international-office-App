@@ -1,0 +1,37 @@
+
+ <h2 class="text-center mt-3">News</h2>
+ <div>
+   <mat-grid-list cols="3" rowheight="2:1">
+     <mat-grid-tile *ngFor="let n of news | paginate : {
+       itemsPerPage: limit,
+       currentPage: page,
+       totalItems: count
+     }; index as i">
+       <div class="card box" style="width: 400px;">
+         <div *ngIf="!n.media" style="background-color: grey; height: 250px" class="card-img-top">  
+         </div>
+         <img *ngIf="n.media" style="height: 200px" [src]="imageBaseUrl + n.media" class="card-img-top" alt="photo">
+         
+         <div class="card-body ">
+           <h4 style="margin-bottom: -3px;">{{n.title}}</h4>
+           <small>{{n.subTitle}}</small>
+           <p style="margin-top: 10px;" class="card-text ">
+             {{n.description}}
+           </p>
+         </div>
+         <div class="card-footer">
+           Published at:  {{formatDate(n.createdAt)}}
+         </div>
+       </div>
+     </mat-grid-tile>
+   </mat-grid-list>
+   
+   <div class="d-flex mt-3 justify-content-center col-md-12">
+     <pagination-controls
+       previousLabel="Prev"
+       nextLabel="Next"
+       (pageChange)="handlePageChange($event)"
+     ></pagination-controls>
+   </div>
+ </div>
+ 

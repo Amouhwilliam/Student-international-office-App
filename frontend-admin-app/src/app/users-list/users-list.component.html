@@ -1,0 +1,73 @@
+  
+  <div class="p-3">
+      <!--button
+        class="btn mb-3 btn-outline-secondary"
+        type="button"
+        (click)="openModal(content, false)"
+      >
+        Add new news
+      </button-->
+  
+      <div class="d-flex justify-content-end form-group form-inline">
+        <input 
+          class="form-control mr-2"
+          type="text"
+          placeholder="Search by lastname"
+          [(ngModel)]="searchText"
+        />
+        <div class="input-group-append mr-5">
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            (click)="retrieveUsers()"
+          >
+            Search
+          </button>
+        </div>
+     </div>
+      
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">First name</th>
+          <th scope="col">Last name</th>
+          <th scope="col">email</th>
+          <th scope="col">Type Account</th>
+          <th scope="col">Matriculation</th>
+          <th scope="col">Birthdate</th>
+          <th scope="col">Address</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let user of users | paginate : {
+          itemsPerPage: limit,
+          currentPage: page,
+          totalItems: count
+        }; index as i">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{ user.first_name }}</td>
+          <td>{{ user.last_name }}</td>
+          <td>{{ user.email }}</td>
+          <td><span class="badge bg-success" style="font-weight: bold; color: black;">{{ user.type }}</span></td>
+          <td>{{ user.matriculation }}</td>
+          <td>{{ user.birthdate }}</td>
+          <td>{{ user.address }}</td>
+          <td>
+            <!--mat-icon aria-hidden="false" class="mr-2 cursor-pointer" (click)="openModal(content, true, n)" aria-label="Example home icon">edit</mat-icon-->
+            <!--mat-icon aria-hidden="false" class="cursor-pointer" color="accent" (click)="removeData(user._id)" aria-label="Example home icon">delete</mat-icon-->
+          </td>
+        </tr>
+        </tbody>
+      </table>
+  
+      <div class="d-flex justify-content-end col-md-12">
+        <pagination-controls
+          previousLabel="Prev"
+          nextLabel="Next"
+          (pageChange)="handlePageChange($event)"
+        ></pagination-controls>
+      </div>
+   
+  </div>
+  

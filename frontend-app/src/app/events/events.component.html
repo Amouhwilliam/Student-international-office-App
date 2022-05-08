@@ -1,0 +1,36 @@
+
+ <h2 class="text-center mt-3">Events</h2>
+<div>
+  <mat-grid-list cols="3" rowheight="2:1">
+    <mat-grid-tile *ngFor="let event of events | paginate : {
+      itemsPerPage: limit,
+      currentPage: page,
+      totalItems: count
+    }; index as i">
+      <div class="card box" style="width: 400px;">
+        <div *ngIf="!event.media" style="background-color: grey; height: 250px" class="card-img-top">  
+        </div>
+        <img *ngIf="event.media" style="height: 200px" [src]="imageBaseUrl + event.media" class="card-img-top" alt="photo">
+        
+        <div class="card-body ">
+          <h4 style="margin-bottom: -3px;">{{event.title}}</h4>
+          <small>{{event.subTitle}}</small>
+          <p style="margin-top: 10px;" class="card-text ">
+            {{event.description}}
+          </p>
+        </div>
+        <div class="card-footer">
+          Published at:  {{formatDate(event.createdAt)}}
+        </div>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+  
+  <div class="d-flex mt-3 justify-content-center col-md-12">
+    <pagination-controls
+      previousLabel="Prev"
+      nextLabel="Next"
+      (pageChange)="handlePageChange($event)"
+    ></pagination-controls>
+  </div>
+</div>

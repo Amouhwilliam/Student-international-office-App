@@ -1,0 +1,82 @@
+<div class="d-flex justify-content-center align-items-center mt-5">
+    <div class="card" style="width: '70%'; ">
+        <div class="d-flex justify-content-center form-inline mt-4">
+            <div class="form-group mr-3" >
+                <select class="form-control" [(ngModel)]="selectValue" style="width: 200px" id="type" >
+                  <option value="">Select a user</option>
+                  <option *ngFor="let user of users; index as i" value={{user._id}}>
+                    {{user.first_name}} {{user.last_name}} - ({{user.type}})
+                  </option>
+                </select>
+              </div>
+            <div class="input-group-append ">
+              <button
+                class="btn btn-outline-secondary"
+                type="button"
+                (click)="StartChat()"
+              >
+                Start chatting
+              </button>
+            </div>
+         </div>
+        <div class="card-body" style="height: '100%'">
+            <div class="row">
+                <div class="col-md-3 py-3 border sidebar overflow-scroll" style="border-radius: 5px;"> 
+                    <h2>Chats</h2>
+                    <div class="border-bottom cursor-pointer" 
+                        *ngFor="let chat of chats; index as i" 
+                        (click)="selectChat(chat)"
+                        [ngStyle]="{'color': (currentChat?._id === chat?._id) ? 'orange' : '#ffffff'}"
+                    >
+                        <h4 style="margin-bottom: -3px;">{{getChatTitle(chat)}}</h4>
+                        <p>{{getCuttedString(chat?.message[chat?.message?.length - 1]?.message)}}</p>
+                    </div>
+                </div>
+                <div class="col-md-9 px-2" > 
+                    <div  class="align-items-end">
+                        <div style="height: 500px" class="overflow-scroll">
+
+                            <div class="d-flex my-2"
+                                *ngFor="let message of currentChat?.message; index as i"
+                                [ngClass]="(message?.from === authUser._id) ? 'justify-content-end' : 'justify-content-start'"
+                            >
+                                <div style="width: '70%';" [ngClass]="(message?.from === authUser._id) ? 'msg-mine border' : 'msg-not-mine'">
+                                    {{message?.message}}
+                                </div>
+                            </div>
+                            <div *ngIf="currentChat && currentChat?.message.length === 0" class="d-flex justify-content-center mt-5">
+                                <h3>
+                                    No message
+                                </h3>
+                            </div>
+                            <div *ngIf="!currentChat" class="d-flex justify-content-center mt-5" style="font-weight: bold;">
+                                <h3>
+                                    Select a chat of initiate a new one
+                                </h3>
+                            </div>
+                        </div>
+                        <div *ngIf="currentChat">
+                            <div class="mb-2 row">
+                                <div class="col-md-10">
+                                    <input type="text"
+                                     class="form-control" 
+                                     [(ngModel)]="messageText" 
+                                     placeholder="Type your message" >
+                                </div>
+                                <div class="col-md-2">
+                                    <button
+                                    class="btn btn-outline-secondary"
+                                    style="width: '100%'"
+                                    (click)="sendMsg()"
+                                    type="button">
+                                        Send
+                                    </button>
+                                </div>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

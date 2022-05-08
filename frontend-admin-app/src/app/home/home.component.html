@@ -1,0 +1,57 @@
+<div class="d-flex justify-content-center align-items-center mt-2 mb-1">
+  <h1>Welcome on the Dashboard</h1>
+</div>
+
+<div class="container form-group login_heading d-flex justify-content-center align-items-center auth-wrapper">
+    <form class="border p-3 login-form form-register" [formGroup]="registerForm" (ngSubmit)="registerUser()">
+      <h1>Create an user account</h1>
+
+      <div class="mb-3">
+        <label for="firstname" class="form-label">{{'firstname'| translate}}:</label>
+        <input type="text" class="form-control" id="firstname" placeholder="{{'firstname'| translate}}" formControlName="first_name">
+      </div>
+
+      <div class="mb-3">
+        <label for="lastname" class="form-label">{{'lastname'| translate}}:</label>
+        <input type="lastname" class="form-control" id="lastname" placeholder="{{'lastname'| translate}}" formControlName="last_name">
+      </div>
+
+      <div class="row">
+        <div class="mb-3 col">
+          <label for="pwd" class="form-label">{{'password'| translate}}:</label>
+          <input type="password" class="form-control" id="pwd" placeholder="{{'password'| translate}}:" formControlName="password">
+        </div>
+        <div class="mb-3 col">
+          <div class="form-group">
+            <label for="type" class="form-label">Type of account:</label>
+            <select class="form-control" id="type" formControlName="type">
+              <option value="">Select a type</option>
+              <option value="student">Student</option>
+              <option value="staff">Staff</option>
+              <option value="professor">Professor</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="mb-3 col">
+          <label for="email" class="form-label">{{'email'| translate}}:</label>
+          <input type="email" class="form-control" id="email" placeholder="{{'email'| translate}}" formControlName="email" required>
+        </div>
+        <div class="mb-3 col">
+          <label for="birthdate" class="form-label">birthdate:</label>
+          <input type="birthdate" class="form-control" id="birthdate" placeholder="format: DD-MM-YYYY" formControlName="birthdate">
+        </div>
+      </div>
+  
+      <div class="mb-3">
+        <label for="address" class="form-label">{{'address'| translate}}:</label>
+        <textarea class="form-control" id="address"  placeholder="{{'address'| translate}}" formControlName="address" rows="3"></textarea>
+      </div>
+  
+      <button type="submit" class="btn login-btn">Create</button>
+      <button type="reset" (click)="onReset()" class="btn cancel-btn">Cancel</button>
+    </form>
+  </div>
+  

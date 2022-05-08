@@ -1,0 +1,20 @@
+<div class="container form-group login_heading d-flex justify-content-center align-items-center">
+  <form class="border p-3 login-form form-register" [formGroup]="loginForm" (ngSubmit)="loginUser()">
+    <h1>Login</h1>
+    <div class="mb-3">
+      <label for="email" class="form-label">{{'email'| translate}}:</label>
+      <input type="email" class="form-control" id="email" placeholder="{{'email'| translate}}" formControlName="email">
+    </div>
+
+    <div class="mb-3">
+      <label for="pwd" class="form-label">{{'password'| translate}}:</label>
+      <input type="password" class="form-control" id="pwd" placeholder="{{'password'| translate}}:" formControlName="password">
+    </div>
+
+    <div class="checkbox">
+      <label><input type="checkbox" name="remember"> {{'text1'|translate}}</label>
+    </div>
+
+    <button type="submit" class="btn login-btn">{{'button7'| translate}}</button>
+  </form>
+</div>

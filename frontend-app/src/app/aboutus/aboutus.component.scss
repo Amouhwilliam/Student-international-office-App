@@ -1,0 +1,37 @@
+.bg {
+  
+    /* Full height */
+    height: 100%; 
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .infotext{
+    margin-left: 100px;
+    margin-right:100px;
+    font-family: sans-serif;
+}
+  img{
+    max-width: 100%;
+    height: auto;
+  }
+  
+  
+.infotext_big_black {
+    font-family: 'Saira', sans-serif;
+    color: #1a4273;
+    max-width: 100%;
+    vertical-align: middle;
+    text-align: center;
+}
+.center{
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+
+.pimcore_area_content {
+    padding: 20px 0;
+}
