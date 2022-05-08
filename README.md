@@ -2,7 +2,7 @@
 
 Name of the project -International Office
 
-Author: William Amouh - 00821681
+Author: William Amouh
 
 ## How to run the plateform
 
